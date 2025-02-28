@@ -1,0 +1,83 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  display: flex;
+  width: 1152px;
+  height: 564px;
+  padding: 0px 50px;
+  align-items: center;
+  gap: 30px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.05);
+}
+
+.descr-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 2;
+  gap: 50px;
+  align-self: stretch;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.img-container {
+  display: flex;
+  padding-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  align-self: stretch;
+  overflow: scroll;
+}
+
+.img-container img {
+  height: 404.388px;
+  align-self: stretch;
+  aspect-ratio: 703/404.39;
+}
+
+.buttons-container {
+  display: flex;
+  width: 1440px;
+  padding: 50px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+button {
+  width: 7px;
+  height: 7px;
+  background-color: #d67d91;
+  border-radius: 4px;
+  border: none;
+}
+
+button:active,
+button:hover {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background-color: #b24c63;
+}

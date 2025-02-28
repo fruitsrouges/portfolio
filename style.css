@@ -62,6 +62,15 @@ h3,
   line-height: normal;
 }
 
+p {
+  color: var(--main-text-color);
+  font-family: var(--main-font);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
 a {
   color: var(--main-text-color);
   font-family: var(--title-font);
