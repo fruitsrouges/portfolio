@@ -1,0 +1,10 @@
+.text-container {
+  position: absolute;
+  top: 120px;
+  left: 160px;
+  display: flex;
+  width: 706px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+}

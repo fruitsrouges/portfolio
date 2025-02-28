@@ -1,8 +1,34 @@
+header {
+  padding: 0;
+}
+
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  height: 100vh;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .card-container {
@@ -11,9 +37,12 @@ main {
   height: 564px;
   padding: 0px 50px;
   align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
   gap: 30px;
+  flex-shrink: 0;
   border-radius: 10px;
-  background: #fff;
+  background: #ffffff;
   box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.05);
 }
 

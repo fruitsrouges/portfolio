@@ -10,6 +10,10 @@
   --main-font: "Montserrat";
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -74,7 +78,7 @@ p {
 a {
   color: var(--main-text-color);
   font-family: var(--title-font);
-  font-size: 16px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
@@ -86,14 +90,14 @@ a:visited {
 }
 
 span.bold {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 65px 50px;
+  padding: 50px;
 }
 
 #logo {
@@ -105,10 +109,37 @@ header {
 }
 
 .nav-bar ul {
+  position: absolute;
+  top: 50px;
+  right: 50px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   text-align: right;
+}
+
+.burger span {
+  border: solid #000 1.5px;
+  width: 30px;
+  height: 0;
+}
+/*
+.nav-bar {
+  display: none;
+}
+
+.nav-bar.show {
+  display: block;
+}
+*/
+.burger {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  position: absolute;
+  right: 50px;
+  top: 55px;
 }
 
 footer {
