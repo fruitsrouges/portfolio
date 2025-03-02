@@ -1,3 +1,11 @@
+main {
+  height: 100vh;
+}
+
+main img {
+  width: 100%;
+}
+
 .text-container {
   position: absolute;
   top: 120px;
@@ -16,4 +24,8 @@ a.clickable-mail2 {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+a.clickable-mail2:hover {
+  transform: scale(1.5);
 }

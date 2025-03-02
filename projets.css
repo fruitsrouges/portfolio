@@ -9,6 +9,7 @@ main {
   align-items: center;
   height: 100vh;
   background-image: url("images/background2.jpg");
+  background-size: contain;
 }
 
 .carousel-container {
@@ -30,7 +31,7 @@ main {
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding-bottom: 50px;
+  padding: 0 50px 50px;
 }
 
 .card-container {
@@ -78,7 +79,7 @@ main {
   align-items: center;
   gap: 20px;
   align-self: stretch;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .img-container img {
@@ -109,6 +110,7 @@ button {
   border-radius: 4px;
   border: none;
   transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 button:hover,
