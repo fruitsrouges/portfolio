@@ -25,18 +25,6 @@ li {
 }
 
 /* fonts */
-
-body {
-  color: var(--main-text-color);
-  font-family: var(--main-font);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  position: relative;
-  min-height: 100vh;
-}
-
 h1 {
   color: var(--main-text-color);
   font-family: var(--title-font);
@@ -44,13 +32,12 @@ h1 {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: -2.4px;
 }
 
 h2 {
   color: var(--secondary-text-color);
   font-family: var(--title-font);
-  font-size: 14px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -89,23 +76,25 @@ a:visited {
   color: var(--main-text-color);
 }
 
+a.clickable-mail {
+  color: var(--main-text-color);
+  font-family: var(--main-font);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
 span.bold {
   font-weight: 700;
 }
 
 header {
   display: flex;
+  position: absolute;
   justify-content: space-between;
   width: 100%;
   padding: 50px;
-}
-
-#logo {
-  width: 30%;
-}
-
-#logo img {
-  width: 100%;
 }
 
 .nav-bar ul {
@@ -121,9 +110,8 @@ header {
 .burger span {
   border: solid #000 1.5px;
   width: 30px;
-  height: 0;
 }
-/*
+
 .nav-bar {
   display: none;
 }
@@ -131,7 +119,7 @@ header {
 .nav-bar.show {
   display: block;
 }
-*/
+
 .burger {
   display: flex;
   flex-direction: column;
@@ -139,7 +127,7 @@ header {
   cursor: pointer;
   position: absolute;
   right: 50px;
-  top: 55px;
+  top: 50px;
 }
 
 footer {
@@ -157,4 +145,56 @@ footer div {
 
 #copyright {
   font-weight: 300;
+}
+
+/*RESPONSIVE*/
+
+@media (max-width: 768px) {
+  /*fonts*/
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 11px;
+  }
+
+  h3,
+  .h3 {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+  a {
+    font-size: 11px;
+  }
+
+  a:visited {
+    color: var(--main-text-color);
+  }
+
+  a.clickable-mail {
+    font-size: 14px;
+  }
+
+  /*main*/
+  .nav-bar ul {
+    top: 30px;
+    right: 30px;
+    gap: 1px;
+  }
+
+  .burger {
+    gap: 4px;
+    right: 30px;
+    top: 30px;
+  }
+
+  .burger span {
+    border: solid #000 1px;
+    width: 20px;
+  }
 }

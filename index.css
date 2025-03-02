@@ -1,8 +1,25 @@
+main {
+  height: 100vh;
+}
+
 main img {
   width: 100%;
 }
 
-header {
-  position: absolute;
-  top: 0;
+#logo {
+  width: 30%;
+}
+
+#logo img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  #logo {
+    width: 30%;
+  }
+
+  header {
+    padding: 30px;
+  }
 }

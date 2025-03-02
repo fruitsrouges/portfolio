@@ -8,3 +8,12 @@
   align-items: flex-start;
   gap: 50px;
 }
+
+a.clickable-mail2 {
+  color: var(--main-text-color);
+  font-family: var(--main-font);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

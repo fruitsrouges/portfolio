@@ -8,6 +8,7 @@ main {
   justify-content: flex-end;
   align-items: center;
   height: 100vh;
+  background-image: url("images/background2.jpg");
 }
 
 .carousel-container {
@@ -23,12 +24,13 @@ main {
 .carousel {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 100px;
   width: 100%;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  padding-bottom: 50px;
 }
 
 .card-container {
@@ -64,6 +66,10 @@ main {
   gap: 20px;
 }
 
+.redirecting-button img:hover {
+  transform: scale(1.1);
+}
+
 .img-container {
   display: flex;
   padding-top: 20px;
@@ -83,7 +89,7 @@ main {
 .buttons-container {
   display: flex;
   width: 1440px;
-  padding: 50px 0px;
+  padding-bottom: 50px;
   justify-content: center;
   align-items: center;
 }
@@ -103,10 +109,8 @@ button {
   border: none;
 }
 
-button:active,
-button:hover {
-  width: 12px;
-  height: 12px;
-  border-radius: 6px;
+button:hover,
+button:active {
+  transform: scale(1.5);
   background-color: #b24c63;
 }
