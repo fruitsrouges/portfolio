@@ -9,11 +9,10 @@ main {
   align-items: center;
   height: 100vh;
   background-image: url("images/background2.jpg");
-  background-size: contain;
+  background-size: cover;
 }
 
 .carousel-container {
-  position: relative;
   width: 100vw;
   overflow: hidden;
 }
@@ -25,24 +24,23 @@ main {
 .carousel {
   display: flex;
   flex-direction: row;
-  gap: 100px;
+  gap: 6.6vw;
   width: 100%;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  overflow-x: auto; /*
+  scroll-snap-type: x mandatory; */
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding: 0 50px 50px;
+  padding: 0 10vw 6vh;
 }
 
 .card-container {
   display: flex;
-  width: 1152px;
-  height: 564px;
-  padding: 0px 50px;
+  width: 80vw;
+  height: 69.63vh;
+  padding: 0 3.5vw;
   align-items: center;
   justify-content: center;
-  scroll-snap-align: center;
-  gap: 30px;
+  gap: 2.08vw;
   flex-shrink: 0;
   border-radius: 10px;
   background: #ffffff;
@@ -55,7 +53,7 @@ main {
   justify-content: center;
   align-items: flex-start;
   flex: 2;
-  gap: 50px;
+  gap: 6vh;
   align-self: stretch;
 }
 
@@ -64,7 +62,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 20px;
+  gap: 2.47vh;
 }
 
 .redirecting-button img:hover {
@@ -74,10 +72,10 @@ main {
 
 .img-container {
   display: flex;
-  padding-top: 20px;
+  padding-top: 2.47vh;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 2.47vh;
   align-self: stretch;
   overflow: hidden;
 }
@@ -90,8 +88,8 @@ main {
 
 .buttons-container {
   display: flex;
-  width: 1440px;
-  padding-bottom: 50px;
+  width: 100%;
+  padding-bottom: 6vh;
   justify-content: center;
   align-items: center;
 }
@@ -100,7 +98,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 1.2vh;
 }
 
 button {
@@ -113,8 +111,63 @@ button {
   cursor: pointer;
 }
 
-button:hover,
-button:active {
+.buttons button:hover {
   transform: scale(1.5);
-  background-color: #b24c63;
+  transform: color(#b24c63);
+}
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 768px) {
+  .card-container {
+    box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.05);
+  }
+  .descr-container {
+    gap: 5vh;
+  }
+
+  .text-container {
+    gap: 1.7vh;
+  }
+
+  .redirecting-button a img {
+    width: 45%;
+  }
+  .redirecting-button img:hover {
+    transform: scale(1.05);
+  }
+
+  .img-container img {
+    height: 216.4px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+  .card-container {
+    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.05);
+  }
+  .descr-container {
+    gap: 5vh;
+  }
+
+  .text-container {
+    gap: 1.9vh;
+  }
+
+  .redirecting-button a img {
+    width: 80%;
+  }
+
+  .img-container img {
+    height: 370.4px;
+  }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
+}
+
+@media screen and (min-width: 1441px) {
+  .img-container img {
+    height: 499.4px;
+  }
 }

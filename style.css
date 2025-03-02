@@ -29,7 +29,7 @@ li {
 h1 {
   color: var(--main-text-color);
   font-family: var(--title-font);
-  font-size: 40px;
+  font-size: 2.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -38,7 +38,7 @@ h1 {
 h2 {
   color: var(--secondary-text-color);
   font-family: var(--title-font);
-  font-size: 15px;
+  font-size: 0.9rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -48,7 +48,7 @@ h3,
 .h3 {
   color: var(--accent-color);
   font-family: var(--title-font);
-  font-size: 24px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -57,7 +57,7 @@ h3,
 p {
   color: var(--main-text-color);
   font-family: var(--main-font);
-  font-size: 14px;
+  font-size: 0.85rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -66,7 +66,7 @@ p {
 a {
   color: var(--secondary-accent-color);
   font-family: var(--title-font);
-  font-size: 15px;
+  font-size: 0.9rem;
   font-style: normal;
   font-weight: 300;
   line-height: normal;
@@ -76,10 +76,24 @@ a {
 a.clickable-mail {
   color: var(--main-text-color);
   font-family: var(--main-font);
-  font-size: 14px;
+  font-size: 0.9rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+}
+
+a.clickable-mail2 {
+  color: var(--main-text-color);
+  font-family: var(--main-font);
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+a.clickable-mail2:hover {
+  transition: transform 0.3s ease-in-out;
+  color: var(--accent-color);
 }
 
 span.bold {
@@ -92,18 +106,18 @@ header {
   position: absolute;
   justify-content: space-between;
   width: 100%;
-  padding: 50px;
+  padding: 6.17vh 3.5vw;
 }
 
 .burger {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 6px;
+  gap: 0.75vh;
   cursor: pointer;
   position: absolute;
-  right: 50px;
-  top: 50px;
+  right: 3.5vw;
+  top: 6vh;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -119,16 +133,19 @@ header {
 
 .nav-content {
   position: absolute;
-  top: 45px;
-  right: 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  text-align: right;
+  top: 5.4vh;
+  right: 7vw;
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-1.2vh);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   pointer-events: none;
+}
+
+.nav-content ul {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 0.5vh;
 }
 
 .nav-content.show {
@@ -145,14 +162,14 @@ header {
 footer {
   width: 100%;
   bottom: 0;
-  padding: 0 50px 30px 50px;
+  padding: 0 3.5vw 3.5vh 3.5vw;
 }
 
 footer div {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 10px;
+  gap: 1.2vh;
 }
 
 #copyright {
@@ -164,49 +181,151 @@ footer div {
 @media screen and (max-width: 768px) {
   /*fonts*/
   h1 {
-    font-size: 25px;
+    font-size: 1rem;
   }
 
   h2 {
-    font-size: 11px;
+    font-size: 0.5rem;
   }
 
   h3,
   .h3 {
-    font-size: 14px;
+    font-size: 0.85rem;
   }
 
   p {
-    font-size: 10px;
+    font-size: 0.45rem;
   }
 
   a {
-    font-size: 11px;
+    font-size: 0.55rem;
   }
 
-  a:visited {
-    color: var(--main-text-color);
-  }
-
-  a.clickable-mail {
-    font-size: 14px;
+  a.clickable-mail,
+  a.clickable-mail2 {
+    font-size: 0.5rem;
   }
 
   /*main*/
-  .nav-bar ul {
-    top: 30px;
-    right: 30px;
-    gap: 1px;
-  }
 
   .burger {
-    gap: 4px;
-    right: 30px;
-    top: 30px;
+    gap: 0.6vh;
+    right: 3.9vw;
+    top: 6.94vh;
   }
 
   .burger span {
     border: solid #000 1px;
-    width: 20px;
+    width: 16px;
+  }
+
+  .burger.active span:nth-child(2) {
+    width: 13px;
+  }
+
+  .nav-content {
+    right: 7vw;
+    top: 5.4vh;
+  }
+
+  .nav-content ul {
+    gap: 0;
+  }
+
+  footer div {
+    gap: 1vh;
+  }
+
+  footer {
+    width: 100%;
+    bottom: 0;
+    padding: 0 30px 15px 30px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+  /*fonts*/
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 0.75rem;
+  }
+
+  h3,
+  .h3 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.75rem;
+  }
+
+  a {
+    font-size: 0.8rem;
+  }
+
+  a.clickable-mail,
+  a.clickable-mail2 {
+    font-size: 0.7rem;
+  }
+
+  /*main*/
+  .burger span {
+    border: solid #000 1.5px;
+    width: 28px;
+  }
+
+  .burger.active span:nth-child(2) {
+    width: 24px;
+  }
+
+  .nav-content {
+    top: 5.5vh;
+  }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
+}
+
+@media screen and (min-width: 1441px) {
+  h1 {
+    font-size: 2.7rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  h3,
+  .h3 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  a {
+    font-size: 1rem;
+  }
+
+  a.clickable-mail,
+  a.clickable-mail2 {
+    font-size: 1rem;
+  }
+
+  /*main*/
+  .burger {
+    gap: 0.7vh;
+  }
+
+  .burger span {
+    width: 34px;
+  }
+
+  .burger.active span:nth-child(2) {
+    width: 29px;
   }
 }

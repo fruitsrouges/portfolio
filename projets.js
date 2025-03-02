@@ -3,11 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const carousel = document.querySelector(".carousel");
     const cards = document.querySelectorAll(".card-container");
     const buttons = document.querySelectorAll(".buttons button");
-
     let currentCardIndex = 0;
     let isScrolling = false;
+    let isCarouselComplete = false;
 
-    function smoothScrollTo(element, targetPosition, duration) {
+    function smoothScrollTo(element, targetPosition, duration, callback) {
         let startPosition = element.scrollLeft;
         let startTime = null;
 
@@ -23,73 +23,79 @@ document.addEventListener("DOMContentLoaded", function () {
                 requestAnimationFrame(animation);
             } else {
                 isScrolling = false;
+                if (callback) callback();
             }
         }
-
         requestAnimationFrame(animation);
     }
 
     function scrollToCard(index) {
         if (index >= 0 && index < cards.length) {
             currentCardIndex = index;
-            let targetPosition = cards[index].offsetLeft - carousel.offsetLeft;
+            let targetPosition = cards[index].offsetLeft - carousel.offsetLeft - parseFloat(getComputedStyle(carousel).paddingLeft);
             isScrolling = true;
-            smoothScrollTo(carousel, targetPosition, 800); // 800ms pour un effet fluide
             updateActiveButton();
+            smoothScrollTo(carousel, targetPosition, 2000, () => {
+                if (currentCardIndex === cards.length - 1) {
+                    const lastImgContainer = currentCard.querySelector(".img-container");
+                    if (lastImgContainer.scrollTop + lastImgContainer.clientHeight >= lastImgContainer.scrollHeight) {
+                        isCarouselComplete = true;
+                        document.body.style.overflow = "auto";
+                    }
+                }
+                
+            });
         }
     }
 
     function updateActiveButton() {
         buttons.forEach((button, index) => {
-            if (index === currentCardIndex) {
-                button.style.backgroundColor = "#b24c63";
-                button.style.transform = "scale(1.5)";
-            } else {
-                button.style.backgroundColor = "#d67d91";
-                button.style.transform = "scale(1)";
-            }
+            button.style.transition = "transform 2s ease, background-color 2s ease";
+            button.style.backgroundColor = index === currentCardIndex ? "#b24c63" : "#d67d91";
+            button.style.transform = index === currentCardIndex ? "scale(1.5)" : "scale(1)";
         });
     }
 
     function handleScroll(event) {
+        if (isScrolling || isCarouselComplete) return;
         event.preventDefault();
-
-        if (isScrolling) return; // Empêche un scroll trop rapide
 
         const currentCard = cards[currentCardIndex];
         const imgContainer = currentCard.querySelector(".img-container");
 
         if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
-            // SCROLL VERTICAL (Images)
-            if (event.deltaY > 0) { // Scroll vers le bas
+            if (event.deltaY > 0) {
                 if (imgContainer.scrollTop + imgContainer.clientHeight < imgContainer.scrollHeight) {
-                    imgContainer.scrollBy({ top: 100, behavior: "smooth" }); // Scroll vertical plus lent
-                } else {
-                    if (currentCardIndex < cards.length - 1) {
-                        currentCardIndex++;
-                        scrollToCard(currentCardIndex);
-                    }
+                    imgContainer.scrollBy({ top: 50, behavior: "smooth" });
+                } else if (!isScrolling && currentCardIndex < cards.length - 1) {
+                    currentCardIndex++;
+                    scrollToCard(currentCardIndex);
+                } else if (currentCardIndex === cards.length - 1) {
+                    isCarouselComplete = true;
+                    document.body.style.overflow = "auto";
                 }
-            } else { // Scroll vers le haut
+            } else {
                 if (imgContainer.scrollTop > 0) {
-                    imgContainer.scrollBy({ top: -100, behavior: "smooth" }); // Scroll vertical plus lent
-                } else {
-                    if (currentCardIndex > 0) {
-                        currentCardIndex--;
-                        scrollToCard(currentCardIndex);
-                    }
+                    imgContainer.scrollBy({ top: -50, behavior: "smooth" });
+                } else if (currentCardIndex > 0) {
+                    currentCardIndex--;
+                    scrollToCard(currentCardIndex);
                 }
             }
         }
     }
 
-    // Ajout de l'écouteur de scroll uniquement sur le carrousel
-    carouselContainer.addEventListener("wheel", handleScroll, { passive: false });
+    window.addEventListener("scroll", () => {
+        if (window.scrollY === 0 && isCarouselComplete) {
+            isCarouselComplete = false;
+            document.body.style.overflow = "hidden";
+        }
+    });
 
-    // Désactiver le scroll de la page entière
+    carousel.style.scrollBehavior = "smooth";
+    carouselContainer.addEventListener("wheel", handleScroll, { passive: false });
     document.body.style.overflow = "hidden";
 
-    // Boutons pour naviguer directement
     buttons.forEach((button, index) => {
         button.addEventListener("click", () => {
             scrollToCard(index);

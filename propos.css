@@ -1,4 +1,6 @@
 main {
+  background-image: url("images/background3.jpg");
+  background-size: cover;
   height: 100vh;
 }
 
@@ -7,25 +9,10 @@ main img {
 }
 
 .text-container {
-  position: absolute;
-  top: 120px;
-  left: 160px;
+  padding-top: 14.81vh;
+  padding-left: 11.11vw;
   display: flex;
-  width: 706px;
+  width: 49.02vw;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 50px;
-}
-
-a.clickable-mail2 {
-  color: var(--main-text-color);
-  font-family: var(--main-font);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-a.clickable-mail2:hover {
-  transform: scale(1.5);
+  gap: 6vh;
 }
