@@ -178,7 +178,32 @@ footer div {
 
 /*RESPONSIVE*/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
+  h2,
+  .h3 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .burger {
+    right: 6vw;
+    top: 5.5vh;
+  }
+
+  .nav-content {
+    right: 15vw;
+    top: 5vh;
+  }
+
+  footer {
+    padding: 0 6vw 2vh 6vw;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
   /*fonts*/
   h1 {
     font-size: 1rem;

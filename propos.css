@@ -16,3 +16,10 @@ main img {
   flex-direction: column;
   gap: 6vh;
 }
+
+@media screen and (max-width: 480px) {
+  .text-container {
+    padding: 6vh 6vw;
+    width: 100%;
+  }
+}
