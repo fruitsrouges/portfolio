@@ -23,7 +23,7 @@ buttons.forEach((button, i) => {
   });
 });
 
-const projetsSection = document.querySelector('#projets');
+const projetsSection = document.querySelector('#works');
 
 const sectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
