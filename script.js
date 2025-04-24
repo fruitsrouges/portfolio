@@ -1,7 +1,40 @@
-function toggleMenu() {
-    const nav = document.querySelector('.nav-content');
-    const burger = document.querySelector('.burger');
+const sections = document.querySelectorAll('.card-container');
+const buttons = document.querySelectorAll('.buttons button');
+const buttonsContainer = document.querySelector('.buttons-container');
 
-    nav.classList.toggle('show');
-    burger.classList.toggle('active');
-}
+const cardsObserver = new IntersectionObserver((entries) => { 
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const index = [...sections].indexOf(entry.target);
+            buttons.forEach(btn => btn.classList.remove('active'));
+            buttons[index].classList.add('active');
+            entry.target.classList.add('display');
+        } else {
+            entry.target.classList.remove('display');
+        }
+    });
+}, { threshold: 0.6 });
+
+sections.forEach(section => cardsObserver.observe(section));
+
+buttons.forEach((button, i) => {
+  button.addEventListener('click', () => {
+    sections[i].scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+const projetsSection = document.querySelector('#projets');
+
+const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            buttonsContainer.classList.remove('hidden');
+        } else {
+            buttonsContainer.classList.add('hidden');
+        }
+    });
+}, {
+    threshold: 0.6
+});
+
+sectionObserver.observe(projetsSection);
