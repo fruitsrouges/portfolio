@@ -2,6 +2,20 @@ const sections = document.querySelectorAll('.card-container');
 const buttons = document.querySelectorAll('.buttons button');
 const buttonsContainer = document.querySelector('.buttons-container');
 
+document.addEventListener("DOMContentLoaded", () => {
+    const titleContainer = document.querySelector(".home-title-container");
+    const popupContainer = document.querySelector(".home-popup");
+  
+    titleContainer.addEventListener("mouseenter", () => {
+      popupContainer.classList.add("visible");
+    });
+  
+    titleContainer.addEventListener("mouseleave", () => {
+      popupContainer.classList.remove("visible");
+    });
+  });
+  
+
 const cardsObserver = new IntersectionObserver((entries) => { 
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -38,3 +52,4 @@ const sectionObserver = new IntersectionObserver(entries => {
 });
 
 sectionObserver.observe(projetsSection);
+

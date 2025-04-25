@@ -2,11 +2,10 @@
 
 :root {
   --main-bg-color: #fff;
-  --accent-color: #b24c63;
-  /* rose: ff98a8 */
-  --secondary-accent-color: #264169;
+  --secondary-bg-color: #ffa968;
+  --main-accent-color: #d86d25;
+  --secondary-accent-color: #2d5831;
   --main-text-color: #000;
-  --secondary-text-color: #b24c63;
 
   --title-font: "Unbounded";
   --main-font: "Montserrat";
@@ -38,9 +37,9 @@ h1 {
 }
 
 h2 {
-  color: var(--secondary-text-color);
+  color: var(--main-accent-color);
   font-family: var(--title-font);
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -148,9 +147,13 @@ main {
 #home {
   background: radial-gradient(
     circle,
-    rgba(255, 152, 168, 1) 0%,
+    rgba(255, 169, 104, 1) 0%,
     rgba(255, 255, 255, 1) 80%
   );
+}
+
+.home-content {
+  position: relative;
 }
 
 .home-title-container {
@@ -159,6 +162,11 @@ main {
   justify-content: center;
   width: 100%;
   animation: zoom 1s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.home-title-container:hover {
+  transform: scale(1.05);
 }
 
 @keyframes zoom {
@@ -199,19 +207,23 @@ main {
   }
 }
 
-/*
-@keyframes pulse {
-  0% {
-    transform: translateX(-2px) translateY(-2px);
-  }
-  50% {
-    transform: translateX(2px) translateY(2px);
-  }
-  100% {
-    transform: translateX(-2px) translateY(-2px);
-  }
+.home-popup {
+  position: absolute;
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  background: #fff;
+  top: 30%;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.1s ease-out;
 }
-*/
+
+.home-popup.visible {
+  opacity: 1;
+}
 
 /*CARDS SCROLL*/
 
@@ -224,7 +236,7 @@ main {
   overflow-y: scroll;
   height: 100vh;
   width: 100vw;
-  -ms-verflow-style: none;
+  -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
@@ -269,7 +281,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 50px;
+  gap: 3vh;
 }
 
 .works-text-content {
@@ -277,7 +289,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 30px;
+  gap: 2.5vh;
   width: 461px;
 }
 
@@ -285,7 +297,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px;
+  gap: 1vh;
   align-self: stretch;
 }
 
@@ -314,7 +326,7 @@ main {
 button {
   width: 7px;
   height: 7px;
-  background-color: #d67d91;
+  background-color: #80a568;
   border-radius: 4px;
   border: none;
   transition: transform 0.3s ease-in-out;
@@ -326,7 +338,7 @@ button {
 }
 
 .buttons button.active {
-  background-color: #b24c63;
+  background-color: #2d5831;
   transform: scale(1.5);
 }
 
@@ -335,7 +347,7 @@ button {
 #about {
   background: linear-gradient(
     0deg,
-    rgba(255, 152, 168, 1) 0%,
+    rgba(255, 169, 104, 1) 0%,
     rgba(255, 255, 255, 1) 50%
   );
 }
@@ -359,7 +371,7 @@ button {
 
 #footer {
   height: 15%;
-  background-color: #ff98a8;
+  background-color: var(--secondary-bg-color);
   width: 100%;
   padding: 0 3.5vw 3.5vh 3.5vw;
 }
