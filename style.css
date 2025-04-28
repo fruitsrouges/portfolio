@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap");
 
 :root {
-  --main-bg-color: #fff;
-  --secondary-bg-color: #ffa968;
-  --main-accent-color: #d86d25;
-  --secondary-accent-color: #2d5831;
-  --main-text-color: #000;
+  --main-bg-color: #000c14;
+  --main-accent-color: #e4ff5b;
+  --main-accent-color-variant: #fbffda;
+  --secondary-accent-color: #ff70c4;
+  --main-text-color: #fff;
 
   --title-font: "Unbounded";
   --main-font: "Montserrat";
@@ -20,6 +20,10 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--main-bg-color);
 }
 
 li {
@@ -37,16 +41,20 @@ h1 {
 }
 
 h2 {
-  color: var(--secondary-accent-color);
+  color: var(--main-accent-color);
   font-family: var(--title-font);
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
+.about-h2 {
+  color: #ff70c4;
+}
+
 h3 {
-  color: var(--main-accent-color);
+  color: var(--secondary-accent-color);
   font-family: var(--title-font);
   font-size: 1rem;
   font-style: normal;
@@ -64,7 +72,7 @@ p {
 }
 
 a {
-  color: var(--secondary-accent-color);
+  color: var(--main-accent-color);
   font-family: var(--title-font);
   font-size: 0.85rem;
   font-style: normal;
@@ -93,7 +101,7 @@ a.clickable-mail2 {
 
 a.clickable-mail2:hover {
   transition: transform 0.3s ease-in-out;
-  color: var(--secondary-accent-color);
+  color: var(--main-accent-color);
 }
 
 span.bold {
@@ -105,7 +113,7 @@ span.bold {
   z-index: 999;
   position: fixed;
   top: 5.4vh;
-  right: 7vw;
+  right: 4vw;
 }
 
 .nav ul {
@@ -146,8 +154,10 @@ main {
 #home {
   background: radial-gradient(
     circle,
-    rgba(255, 169, 104, 1) 0%,
-    rgba(255, 255, 255, 1) 80%
+    rgba(178, 208, 58, 1) 15%,
+    rgba(40, 72, 39, 1) 30%,
+    rgba(0, 31, 33, 1) 40%,
+    rgb(0, 12, 20, 1) 50%
   );
 }
 
@@ -224,6 +234,10 @@ main {
   opacity: 1;
 }
 
+.home-text {
+  color: var(--main-bg-color);
+}
+
 /*CARDS SCROLL*/
 
 .hidden {
@@ -254,7 +268,7 @@ main {
 .card-content {
   display: flex;
   align-items: center;
-  gap: 100px;
+  justify-content: center;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -270,10 +284,13 @@ main {
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+  width: 100%;
 }
 
 .img-content {
-  height: 321.554px;
+  width: 50%;
+  max-width: 100%;
+  height: auto;
 }
 
 .descr-container {
@@ -289,7 +306,6 @@ main {
   justify-content: center;
   align-items: flex-start;
   gap: 2.5vh;
-  width: 461px;
 }
 
 .title-tags {
@@ -319,13 +335,13 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.2vh;
+  gap: 1.5vh;
 }
 
 button {
   width: 7px;
   height: 7px;
-  background-color: #80a568;
+  background-color: var(--main-accent-color-variant);
   border-radius: 4px;
   border: none;
   transition: transform 0.3s ease-in-out;
@@ -333,23 +349,25 @@ button {
 }
 
 .buttons button:hover {
-  transform: scale(1.5);
+  transform: scale(1.55);
 }
 
 .buttons button.active {
-  background-color: #2d5831;
-  transform: scale(1.5);
+  background-color: var(--main-accent-color);
+  transform: scale(1.55);
 }
 
 /*ABOUT ME */
 
+/*
 #about {
   background: linear-gradient(
     0deg,
-    rgba(255, 169, 104, 1) 0%,
-    rgba(255, 255, 255, 1) 50%
+    rgba(187, 208, 64, 1) 0%,
+    rgba(0, 33, 31, 1) 100%
   );
 }
+*/
 
 .about-text-container {
   display: flex;
@@ -369,13 +387,15 @@ button {
 }
 
 #footer {
-  height: 15%;
-  background-color: var(--secondary-bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 20%;
   width: 100%;
-  padding: 0 3.5vw 3.5vh 3.5vw;
+  padding: 0 4vw 3.5vh 4vw;
 }
 
-.footer-content {
+.footer-contact {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -383,14 +403,14 @@ button {
 }
 
 #copyright {
+  font-size: 0.7rem;
   font-weight: 300;
 }
 
 /*RESPONSIVE*/
 
 @media screen and (max-width: 480px) {
-  h2,
-  .h3 {
+  h2 {
     font-size: 1.3rem;
   }
 
@@ -418,8 +438,7 @@ button {
     font-size: 0.5rem;
   }
 
-  h3,
-  .h3 {
+  h3 {
     font-size: 0.85rem;
   }
 
@@ -460,34 +479,43 @@ button {
 
 @media screen and (min-width: 769px) and (max-width: 1280px) {
   /*fonts*/
+
   h1 {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 
-  h2 {
-    font-size: 0.75rem;
-  }
-
-  h3,
-  .h3 {
-    font-size: 1.25rem;
-  }
-
-  p {
-    font-size: 0.75rem;
+  h3 {
+    font-size: 0.95rem;
   }
 
   a {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 
-  a.clickable-mail,
-  a.clickable-mail2 {
-    font-size: 0.7rem;
-  }
-
+  /*header*/
   .nav {
     top: 5.5vh;
+  }
+
+  /*CARDS*/
+  .cards-content {
+    gap: 50px; /*???*/
+  }
+
+  .img-container {
+    gap: 1.5vh;
+  }
+
+  .descr-container {
+    gap: 2.5vh;
+  }
+
+  .works-text-content {
+    gap: 2vh;
+  }
+
+  .title-tags {
+    gap: 0.5vh;
   }
 }
 
@@ -496,16 +524,15 @@ button {
 
 @media screen and (min-width: 1441px) {
   h1 {
-    font-size: 2.7rem;
+    font-size: 2.8rem;
   }
 
   h2 {
-    font-size: 1rem;
+    font-size: 2rem;
   }
 
-  h3,
-  .h3 {
-    font-size: 1.6rem;
+  h3 {
+    font-size: 1.1rem;
   }
 
   p {
