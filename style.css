@@ -263,12 +263,14 @@ main {
   align-items: center;
   height: 100vh;
   scroll-snap-align: start;
+  padding: 0 12vw;
 }
 
 .card-content {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 100px;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -287,10 +289,8 @@ main {
   width: 100%;
 }
 
-.img-content {
-  width: 50%;
+.img-container img {
   max-width: 100%;
-  height: auto;
 }
 
 .descr-container {
@@ -298,6 +298,7 @@ main {
   flex-direction: column;
   justify-content: center;
   gap: 3vh;
+  width: 100%;
 }
 
 .works-text-content {
