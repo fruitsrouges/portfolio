@@ -112,7 +112,7 @@ span.bold {
 .nav {
   z-index: 999;
   position: fixed;
-  top: 5.4vh;
+  top: 5vh;
   right: 4vw;
 }
 
@@ -180,7 +180,7 @@ main {
 
 @keyframes zoom {
   0% {
-    transform: scale(0.8);
+    transform: scale(0.75);
   }
   50% {
     transform: scale(1.01);
@@ -270,7 +270,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 100px;
+  gap: 7vw;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -296,7 +296,6 @@ main {
 .descr-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 3vh;
   width: 100%;
 }
@@ -304,7 +303,6 @@ main {
 .works-text-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
   gap: 2.5vh;
 }
@@ -314,7 +312,10 @@ main {
   flex-direction: column;
   align-items: flex-start;
   gap: 1vh;
-  align-self: stretch;
+}
+
+.redirecting-button {
+  display: flex;
 }
 
 .redirecting-button img {
@@ -327,8 +328,8 @@ main {
 
 .buttons-container {
   position: fixed;
-  top: 45%;
-  right: 5%;
+  top: 45vh;
+  right: 4vw;
 }
 
 .buttons {
@@ -360,16 +361,6 @@ button {
 
 /*ABOUT ME */
 
-/*
-#about {
-  background: linear-gradient(
-    0deg,
-    rgba(187, 208, 64, 1) 0%,
-    rgba(0, 33, 31, 1) 100%
-  );
-}
-*/
-
 .about-text-container {
   display: flex;
   flex-direction: column;
@@ -390,7 +381,7 @@ button {
 #footer {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 20%;
   width: 100%;
   padding: 0 4vw 3.5vh 4vw;
@@ -411,39 +402,97 @@ button {
 /*RESPONSIVE*/
 
 @media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+
   h2 {
     font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 0.9rem;
   }
 
   p {
     font-size: 0.9rem;
   }
 
-  .nav-content {
-    right: 15vw;
-    top: 5vh;
+  /*HEADER*/
+
+  .nav {
+    right: 4vw;
+    top: 3vh;
   }
 
-  footer {
-    padding: 0 6vw 2vh 6vw;
+  /*HOME*/
+
+  /*CARDS*/
+  .card-container {
+    padding: 0 4vw;
+  }
+
+  .card-content {
+    flex-direction: column;
+    opacity: 1;
+  }
+
+  .img-container {
+    gap: 1vh;
+  }
+
+  .descr-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    width: 100%;
+  }
+
+  .works-text-content {
+    gap: 1.5vh;
+  }
+
+  .title-tags {
+    gap: 0.4vh;
+  }
+
+  .redirecting-button {
+    justify-content: end;
+  }
+
+  .buttons-container {
+    display: none;
+  }
+
+  /*about*/
+
+  /*footer*/
+  #footer {
+    padding: 0 4vw 1vh 4vw;
+  }
+
+  #copyright {
+    text-align: center;
   }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
   /*fonts*/
   h1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   h2 {
-    font-size: 0.5rem;
+    font-size: 1rem;
   }
 
   h3 {
-    font-size: 0.85rem;
+    font-size: 0.5rem;
   }
 
-  p {
+  p,
+  a.clickable-mail,
+  a.clickable-mail2 {
     font-size: 0.45rem;
   }
 
@@ -451,30 +500,52 @@ button {
     font-size: 0.55rem;
   }
 
-  a.clickable-mail,
-  a.clickable-mail2 {
-    font-size: 0.5rem;
-  }
-
   /*header*/
-
-  .nav {
-    right: 7vw;
-    top: 5.4vh;
-  }
-
   .nav ul {
-    gap: 0;
+    gap: 2.5vw;
   }
 
-  footer div {
-    gap: 1vh;
+  #copyright {
+    font-size: 0.35rem;
   }
 
-  footer {
-    width: 100%;
-    bottom: 0;
-    padding: 0 30px 15px 30px;
+  /*CARDS*/
+
+  .card-content {
+    gap: 5.5vw;
+  }
+
+  .img-container {
+    gap: 1.5vh;
+  }
+
+  .works-text-content {
+    gap: 2vh;
+  }
+
+  .title-tags {
+    gap: 0.75vh;
+  }
+
+  .redirecting-button img {
+    width: 5.5%;
+  }
+
+  .buttons {
+    gap: 1.75vh;
+  }
+
+  button {
+    width: 5px;
+    height: 5px;
+  }
+
+  .buttons button:hover {
+    transform: scale(1.5);
+  }
+
+  .buttons button.active {
+    transform: scale(1.5);
   }
 }
 
@@ -493,14 +564,9 @@ button {
     font-size: 0.85rem;
   }
 
-  /*header*/
-  .nav {
-    top: 5.5vh;
-  }
-
   /*CARDS*/
-  .cards-content {
-    gap: 50px; /*???*/
+  .card-content {
+    gap: 4vw;
   }
 
   .img-container {
@@ -536,16 +602,13 @@ button {
     font-size: 1.1rem;
   }
 
-  p {
+  p,
+  a.clickable-mail,
+  a.clickable-mail2 {
     font-size: 0.95rem;
   }
 
   a {
-    font-size: 1rem;
-  }
-
-  a.clickable-mail,
-  a.clickable-mail2 {
     font-size: 1rem;
   }
 }
