@@ -219,7 +219,7 @@ main {
 .home-popup {
   position: absolute;
   display: flex;
-  padding: 10px 20px;
+  padding: 1.25vh 1.5vw;
   justify-content: center;
   align-items: center;
   border-radius: 25px;
@@ -270,7 +270,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 7vw;
+  gap: 5vw;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -285,7 +285,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 2vh;
   width: 100%;
 }
 
@@ -366,8 +366,8 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 15%;
-  gap: 30px;
+  padding-top: 25vh;
+  gap: 3.5vh;
 }
 
 .about-title {
@@ -465,6 +465,19 @@ button {
   }
 
   /*about*/
+
+  .about-text-container {
+    gap: 2vh;
+    padding: 20vh 4vw;
+  }
+
+  .about-title {
+    width: 100%;
+  }
+
+  .about-text {
+    width: 100%;
+  }
 
   /*footer*/
   #footer {
