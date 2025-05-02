@@ -426,6 +426,15 @@ button {
   }
 
   /*HOME*/
+  main {
+    scroll-snap-type: none;
+  }
+
+  .smooth-scroll-wrapper {
+    scroll-snap-type: none;
+    scroll-snap-align: none;
+    overflow-y: visible;
+  }
 
   /*CARDS*/
   .card-container {
@@ -435,6 +444,12 @@ button {
   .card-content {
     flex-direction: column;
     opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .card-container.display .card-content {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .img-container {

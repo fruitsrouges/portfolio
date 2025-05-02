@@ -16,26 +16,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
 
-const cardsObserver = new IntersectionObserver((entries) => { 
-    entries.forEach(entry => {
+  if (!window.matchMedia('(max-width: 480px)').matches) {
+    const cardsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const index = [...sections].indexOf(entry.target);
-            buttons.forEach(btn => btn.classList.remove('active'));
-            buttons[index].classList.add('active');
-            entry.target.classList.add('display');
+          const index = [...sections].indexOf(entry.target);
+          buttons.forEach(btn => btn.classList.remove('active'));
+          buttons[index].classList.add('active');
+          entry.target.classList.add('display');
         } else {
-            entry.target.classList.remove('display');
+          entry.target.classList.remove('display');
         }
-    });
-}, { threshold: 0.6 });
-
-sections.forEach(section => cardsObserver.observe(section));
-
-buttons.forEach((button, i) => {
-  button.addEventListener('click', () => {
-    sections[i].scrollIntoView({ behavior: 'smooth' });
-  });
-});
+      });
+    }, { threshold: 0.6 });
+  
+    sections.forEach(section => cardsObserver.observe(section));
+  }
+  
+  
 
 const projetsSection = document.querySelector('#works');
 
