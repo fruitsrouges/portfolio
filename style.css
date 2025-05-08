@@ -154,9 +154,7 @@ main {
 #home {
   background: radial-gradient(
     circle,
-    rgba(178, 208, 58, 1) 15%,
-    rgba(40, 72, 39, 1) 30%,
-    rgba(0, 31, 33, 1) 40%,
+    rgba(0, 31, 33, 1) 35%,
     rgb(0, 12, 20, 1) 50%
   );
 }
@@ -194,7 +192,7 @@ main {
 }
 
 .home-title {
-  width: 45vw;
+  width: 40vw;
   animation: pulse 3s ease-in-out infinite;
 }
 
@@ -439,6 +437,7 @@ button {
   /*CARDS*/
   .card-container {
     padding: 0 4vw;
+    height: 100%;
   }
 
   .card-content {
